@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <link rel="stylesheet" href="../css/validationEngine.jquery.css" />
+</head>
+<body>
+<div class="example">
+    <form id="formID" class="formular" method="post">
+            <legend>Required!</legend>
+
+            <label>必填项：</label>
+            <div class="reqformError parentFormformID formError" style="opacity: 0.87; position: absolute; top: 74px; left: 307px; margin-top: -38px;"><div class="formErrorContent">* 此处不可空白<br></div><div class="formErrorArrow"><div class="line10"><!-- --></div><div class="line9"><!-- --></div><div class="line8"><!-- --></div><div class="line7"><!-- --></div><div class="line6"><!-- --></div><div class="line5"><!-- --></div><div class="line4"><!-- --></div><div class="line3"><!-- --></div><div class="line2"><!-- --></div><div class="line1"><!-- --></div></div></div><input value="" class="validate[required] text-input" type="text" name="req" id="req">
+
+            <label>可选项：</label>
+            <input value="" class="validate[custom[url]] text-input" type="text" name="optional" id="optional">
+
+            <label>占位符 &amp; 必填（输入内容不能为占位符内容）：</label>
+            <input value="占位符" data-validation-placeholder="占位符" class="validate[required] text-input" type="text" name="reqplaceholder" id="reqplaceholder">
+
+            <label>最喜欢的运动 1：</label>
+            <select name="sport" id="sport" class="validate[required]">
+                <option value="">选择一项运动</option>
+                <option value="option1">网球</option>
+                <option value="option2">足球</option>
+                <option value="option3">高尔夫</option>
+            </select>
+
+            <label>最喜欢的运动 2：</label>
+            <select name="sport2" id="sport2" multiple="" class="validate[required]">
+                <option value="">选择一项运动</option>
+                <option value="option1">网球</option>
+                <option value="option2">足球</option>
+                <option value="option3">高尔夫</option>
+            </select>
+
+            <code>validate[required]</code>
+
+            <legend>Custom</legend>
+
+            <p class="tips">自带常用的正则验证（电话号码、网址、IP 地址、E-mail 地址等）<a href="./demoRegExp">[Demo]</a></p>
+            <label>输入 URL：</label>
+            <input value="http://" class="validate[required,custom[url]] text-input" type="text" name="url" id="url">
+
+            <code>validate[required,custom[url]]</code>
+
+            <legend>Equals</legend>
+
+            <label>密码：</label>
+            <input value="karnius" class="validate[required] text-input" type="password" name="password" id="password">
+
+            <label>确认密码：</label>
+            <input value="kaniusBAD" class="validate[required,equals[password]] text-input" type="password" name="password2" id="password2">
+
+            <code>validate[required,equals[password]]</code>
+
+            <legend>MinSize</legend>
+
+            <label>限制最小字符数（必填项）：</label>
+            <input value="" class="validate[required,minSize[6]] text-input" type="text" name="minsize" id="minsize">
+
+            <code>validate[required,minSize[6]]</code>
+
+            <legend>MaxSize</legend>
+
+            <label>限制最大字符数（可选项，不填写时不会提示错误）：</label>
+            <input value="0123456789" class="validate[optional,maxSize[6]] text-input" type="text" name="maxsize" id="maxsize">
+
+            <code>validate[maxSize[6]]</code>
+
+            <legend>Min</legend>
+
+            <label>输入整数（必须大于或等于 -5）：</label>
+            <input value="-7" class="validate[required,custom[integer],min[-5]] text-input" type="text" name="min" id="min">
+
+            <code>validate[required,custom[integer],min[-5]]</code>
+
+            <legend>Max</legend>
+
+            <label>输入整数（必须小于或等于 50）：
+                <input value="55" class="validate[required,custom[integer],max[50]] text-input" type="text" name="max" id="max">
+            </label>
+            <code>validate[required,custom[integer],max[50]]</code>
+
+            <legend>Credit Card</legend>
+            <div class="tips">
+                <p>检查信用卡号码，理论上是有效的，格式标准参照 <a href="http://en.wikipedia.org/wiki/Luhn_algorithm">Luhn 算法</a>，但最终还是要看银行的脸。</p>
+                <p>鉴于信用卡号码的格式，空格和连字符（' ','-'）将被忽略。</p>
+                <p>示例：</p>
+                <ul>
+                    <li>4111 1111 1111 1111</li>
+                    <li>3737-321345-610004</li>
+                </ul>
+                <a href="http://www.paypalobjects.com/en_US/vhelp/paypalmanager_help/credit_card_numbers.htm">更多示例</a>
+            </div>
+            <input value="" class="validate[required,creditCard] text-input" type="text" name="creditcard2" id="creditcard2">
+            <code>validate[[required,creditCard]</code>
+
+            <legend>Function</legend>
+            <label>调用外部函数进行验证（只能输入“HELLO”）：</label>
+            <input value="" class="validate[required,funcCall[checkHELLO]] text-input" type="text" id="lastname" name="lastname">
+
+            <code>validate[required,funcCall[checkHELLO]]</code>
+
+            <label>自定义验证规则：</label>
+            <input value="" class="validate[required, custom[requiredInFunction]] text-input" type="text" name="req3" id="req3">
+
+        <input class="submit" type="submit" value="验证 &amp; 提交表单">
+        <input id="skipbutton" class="submit validate-skip" type="submit" value="跳过验证 &amp; 提交表单">
+    </form>
+</div>
+
+<script src="../js/jquery-1.8.2.min.js"></script>
+<script src="../js/jquery.validationEngine-zh_CN.js"></script>
+<script src="../js/jquery.validationEngine.js"></script>
+<script>
+    jQuery(document).ready(function(){
+        // binds form submission and fields to the validation engine
+        jQuery('#formID').validationEngine();
+    });
+
+    /**
+     *
+     * @param {jqObject} the field where the validation applies
+     * @param {Array[String]} validation rules for this field
+     * @param {int} rule index
+     * @param {Map} form options
+     * @return an error string if validation failed
+     */
+    function checkHELLO(field, rules, i, options){
+        if (field.val() != 'HELLO') {
+            // this allows to use i18 for the error msgs
+            return options.allrules.validate2fields.alertText;
+        };
+    };
+</script>
+</body>
+</html>
