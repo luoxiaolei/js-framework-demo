@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Validate On Blur - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../css/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../css/icon.css">
+	<link rel="stylesheet" type="text/css" href="../css/demo.css">
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.easyui.validation.js"></script>
+</head>
+<body>
+	<center>
+	<h2 id="top">Validate</h2>
+	<div style="margin:20px 0;"></div>
+	<div class="easyui-panel" title="常用" style="width:100%;max-width:400px;padding:30px 60px;">
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">长度范围限制（3-10）</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'length[3,10]',validateOnCreate:false,validateOnBlur:true,err:err">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="email" class="label-top">Email格式验证</label>
+			<input id="email" class="easyui-validatebox tb" data-options="required:true,validType:'email',validateOnCreate:false,validateOnBlur:true,tipPosition:'left'">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="url" class="label-top">Url格式验证</label>
+			<input id="url" class="easyui-validatebox tb" data-options="required:true,validType:'url',validateOnCreate:false,validateOnBlur:true" tipPosition="right">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="phone" class="label-top">密码:</label>
+			<input id="phone" class="easyui-passwordbox" prompt="Password" data-options="required:true,validateOnCreate:false,validateOnBlur:true" tipPosition="top">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="phone" class="label-top">确认密码:</label>
+			<input id="rephone" class="easyui-passwordbox" prompt="RePassword" data-options="required:true,validateOnCreate:false,validateOnBlur:true" validType="equals['#phone']" tipPosition="bottom">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">限制最小长度5个字符:</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validateOnCreate:false,validateOnBlur:true" validType='minLength[5]'>
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">手机号码:</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'mobile',validateOnCreate:false,validateOnBlur:true,err:err">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">身份证号:</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'IDCard',validateOnCreate:false,validateOnBlur:true,err:err">
+		</div>
+	</div>
+	<div style="margin:20px 0;"></div>
+	<div class="easyui-panel" title="数字" style="width:100%;max-width:400px;padding:30px 60px;">
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">输入整数:</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'checkNum',validateOnCreate:false,validateOnBlur:true">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">合法数字:</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'checkFloat',validateOnCreate:false,validateOnBlur:true">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">验证电话号码:</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'phone',validateOnCreate:false,validateOnBlur:true">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">验证整数或小数 :</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'intOrFloat',validateOnCreate:false,validateOnBlur:true">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">验证QQ,从10000开始:</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'qq',validateOnCreate:false,validateOnBlur:true">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">验证年龄:</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'age',validateOnCreate:false,validateOnBlur:true">
+		</div>
+	</div>
+	<div style="margin:20px 0;"></div>
+	<div class="easyui-panel" title="字符串" style="width:100%;max-width:400px;padding:30px 60px;">
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">输入内容长度必须介于{0}和{1}之间:</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'length[2,4]',validateOnCreate:false,validateOnBlur:true">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">验证是否包含空格和非法字符:</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'unnormal',validateOnCreate:false,validateOnBlur:true">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">过滤特殊字符:</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'filterSpecial',validateOnCreate:false,validateOnBlur:true">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">验证中文:</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'chinese',validateOnCreate:false,validateOnBlur:true">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">验证英语 :</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'english',validateOnCreate:false,validateOnBlur:true">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">用户名不合法（字母开头，允许6-16字节，允许字母数字下划线）:</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'username',validateOnCreate:false,validateOnBlur:true">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">验证姓名，可以是中文或英文  :</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'name',validateOnCreate:false,validateOnBlur:true">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">验证传真 3-4位数字'-'7-8位数字或7-8位数字（519-85125379或85125379）:</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'faxno',validateOnCreate:false,validateOnBlur:true">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">验证邮政编码（非0开头6位数字）:</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'zip',validateOnCreate:false,validateOnBlur:true">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">验证IP地址 :</label>
+			<input id="username" class="easyui-validatebox tb" data-options="required:true,validType:'ip',validateOnCreate:false,validateOnBlur:true">
+		</div>
+	</div>
+	<div style="margin:20px 0;"></div>
+	<div class="easyui-panel" title="日期" style="width:100%;max-width:400px;padding:30px 60px;">
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">输入合适的日期格式 yyyy-MM-dd :</label>
+			<input id="username" style="width:100%;" class="easyui-datebox tb" data-options="required:true,validType:'date',validateOnCreate:false,validateOnBlur:true,formatter:myformatter,parser:myparser">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username"  class="label-top">结束日期不能小于开始日期:</label>
+			<input id="date1" style="width:100%;" class="easyui-datebox tb " data-options="required:true,validateOnCreate:false,validateOnBlur:true,formatter:myformatter,parser:myparser">
+		</div>
+		<div style="margin-bottom:20px">
+			<label for="username" class="label-top">结束日期不能小于开始日期:</label>
+			<input id="date2" style="width:100%;" class="easyui-datebox tb " data-options="required:true,validateOnCreate:false,validateOnBlur:true,formatter:myformatter,parser:myparser" validType="compareDate['#date1']">
+		</div>
+	</div>
+	<a href="#top"><img src="../images/top.gif" style="position: fixed;right: 30px;bottom: 20px;" width="20" height="30"/></a>
+	<style scoped="scoped">
+		.tb{
+			width:100%;
+			margin:0;
+			padding:5px 4px;
+			border:1px solid #ccc;
+			box-sizing:border-box;
+		}
+	</style>
+	<!-- 设置错误提示显示在下方 -->
+	<script type="text/javascript">
+		function err(target, message){
+			var t = $(target);
+			if (t.hasClass('textbox-text')){
+				t = t.parent();
+			}
+			var m = t.next('.error-message');
+			if (!m.length){
+				m = $('<div class="error-message"></div>').insertAfter(t);
+			}
+			m.html(message);
+		}
+		function myformatter(date){
+			var y = date.getFullYear();
+			var m = date.getMonth()+1;
+			var d = date.getDate();
+			return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+		}
+		function myparser(s){
+			if (!s) return new Date();
+			var ss = (s.split('-'));
+			var y = parseInt(ss[0],10);
+			var m = parseInt(ss[1],10);
+			var d = parseInt(ss[2],10);
+			if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+				return new Date(y,m-1,d);
+			} else {
+				return new Date();
+			}
+		}
+	</script>
+</center>
+</body>
+</html>
